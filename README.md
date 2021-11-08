@@ -37,11 +37,17 @@ Should you have any question please do not hesitate to contact the developers
 ## Installation
 
 There is no need to install ParaSiF_CF itself, but the following should be done before ParaSiF_CF can be used:
+
 • FEniCS v2019.0.1 should be installed;
+
 • Code_Saturne v6.0.6 should be installed;
+
 • MUI v1.1.2 (https://github.com/MxUI) should be obtained and its C & Python wrappers should be compiled;
+
 • MUI_Utilities (https://github.com/MUI-Utilities) should be obtained;
+
 • Compile the C & Python wrappers of the FSI Coupling Lab of the MUI Utility;
+
 • Follow the Code_Saturne_MUI_Coupling library of the MUI_Utilities to establish the Code_Saturne - MUI coupling;
 
 ## Source and export before run parMupSiF cases
