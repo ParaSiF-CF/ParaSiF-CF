@@ -38,9 +38,9 @@ Should you have any question please do not hesitate to contact the developers
 
 There is no need to install ParaSiF_CF itself, but the following should be done before ParaSiF_CF can be used:
 
-• FEniCS v2019.0.1 should be installed;
+• FEniCS v2019.0.1 (FFC v2019.1.0.post0: https://bitbucket.org/fenics-project/ffc/src/2019.1.0.post0/ Dolfin v2019.1.0.post0: https://bitbucket.org/fenics-project/dolfin/src/2019.1.0.post0/) should be installed;
 
-• Code_Saturne v6.0.6 should be installed;
+• Code_Saturne v6.0.6 (https://github.com/code-saturne/code_saturne/tree/v6.0.6) should be installed;
 
 • MUI v1.1.2 (https://github.com/MxUI) should be obtained and its C & Python wrappers should be compiled;
 
