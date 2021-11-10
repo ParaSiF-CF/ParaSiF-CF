@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Run from this directory
+cd ${0%/*} || exit 1
+
+rm -r ../RESU/fluidDomain/ ../RESU/structureDomain/ ../slurm*

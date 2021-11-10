@@ -80,9 +80,9 @@ implicit none
     logical, parameter    ::    push_force_MUI = .true.
     logical, parameter    ::    push_in_C = .false.
     logical(kind=1), parameter    ::    parallel_FSI_coupling = .false.
-    integer, parameter    ::    sub_iteration_MUI_Coupling = 25
+    integer, parameter    ::    sub_iteration_MUI_Coupling = 15
     integer, parameter    ::    muiCouplingMethod = 2
-    double precision, parameter    ::    init_und_relx_coupling = 0.5
+    double precision, parameter    ::    init_und_relx_coupling = 0.8
     integer, parameter    ::    aitkenIterationN_IQNILS = 15
     double precision, parameter    ::    und_relx_coupling_Max = 0.5
     logical(kind=1)    ::    local_push = .true.
@@ -190,12 +190,6 @@ module cs_mui_coupling
           integer(c_int), VALUE :: current_sub_iteration_number
           LOGICAL(KIND=C_BOOL), VALUE :: parallel_FSI_coupling
         end function C_cs_fetch_disp_MUI_Coupling
-
-        subroutine C_mui_announce_span() &
-          bind(C, name='mui_announce_span')
-          use, intrinsic :: iso_c_binding
-          implicit none
-        end subroutine C_mui_announce_span
 
         subroutine C_mui_announce_span_send(coord_min_sendX,     &
                                             coord_min_sendY,     &
@@ -439,14 +433,6 @@ module cs_mui_coupling
         return
     end function cs_fetch_disp_MUI_Coupling
 
-    !===============================================================================
-    subroutine mui_announce_span()
-        use, intrinsic :: iso_c_binding
-        implicit none
-        ! Arguments
-        call C_mui_announce_span()
-    end subroutine mui_announce_span
-    
     !===============================================================================
 
     subroutine mui_announce_span_send(coord_min_sendX,     &
@@ -766,6 +752,10 @@ implicit none
 
                 enddo
 
+                write(nfecra, *) "total push size: ", iii
+                print *, "total push size: ", iii
+
+
             endif
 
         else
@@ -917,7 +907,6 @@ end interface
         private
         type(c_ptr) :: ptr ! pointer to the muiCouplingFixedRelaxation class
     contains
-
 
         procedure :: delete => delete_muiCouplingFixedRelaxation_polymorph ! Destructor for gfortran
 
@@ -1799,6 +1788,8 @@ implicit none
                                                         insubiter)
 
                     dis_xx = dispaleX + ((dis_xx_temp - dispaleX)*init_und_relx_coupling)
+
+
 
                 case (3)
 
