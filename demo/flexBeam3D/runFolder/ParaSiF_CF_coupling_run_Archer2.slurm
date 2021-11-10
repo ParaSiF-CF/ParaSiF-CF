@@ -38,7 +38,7 @@ module list
 
 pip list
 
-./SCRIPTS/compileCS
+# ./SCRIPTS/compileCS
 
 domainFluid=${PWD}/RESU/fluidDomain
 domainStructure=${PWD}/RESU/structureDomain

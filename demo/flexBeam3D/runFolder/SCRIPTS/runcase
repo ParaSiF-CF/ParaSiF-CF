@@ -3,8 +3,8 @@
 # Run from this directory
 cd ${0%/*} || exit 1
 
-domainFluid=${PWD}/RESU/fluidDomain
-domainStructure=${PWD}/RESU/structureDomain
+domainFluid=${PWD}/../RESU/fluidDomain
+domainStructure=${PWD}/../RESU/structureDomain
 
 # Ranks set to each domain
 numProcsFluid=128

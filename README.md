@@ -50,14 +50,38 @@ There is no need to install ParaSiF_CF itself, but the following should be done 
 
 • Follow the Code_Saturne_MUI_Coupling library of the MUI_Utilities to establish the Code_Saturne - MUI coupling;
 
-## Source and export before run parMupSiF cases
+## Source and export before run ParaSiF_CF cases
 
 ```bash
 source /path/to/dolfin/dolfin.conf
 source /path/to/Code_Saturne
-export PYTHONPATH= /path/to/parMupSiF/src/CSM/FEniCS/V2019.1.0:$PYTHONPATH
+export PYTHONPATH= /path/to/ParaSiF_CF/src/CSM/FEniCS/V2019.1.0:$PYTHONPATH
 ```
 
 ## Demo
 
 Demo of the single phase FSI case (3-D flow past a flexible beam) is in ParaSiF_CF/demo folder.
+
+To run the demo case:
+
+• Go to the demo folder and extract the mesh file
+```bash
+cd MESH && tar -xf Flex_Beam.tar.gz && cd ../
+```
+
+• Go to the run folder
+```bash
+cd runFolder/
+```
+
+• Source and export before run ParaSiF_CF cases (Please refer to the previous section).
+
+• Compile Code_Saturne and copy FEniCS run case to the RESU sub-folder.
+```bash
+./SCRIPTS/compileCS
+```
+
+• Run the ParaSiF_CF framework.
+```bash
+./SCRIPTS/runcase
+```
