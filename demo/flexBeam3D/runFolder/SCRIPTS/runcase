@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Run from this directory
+cd ${0%/*} || exit 1
+
+domainFluid=${PWD}/../RESU/fluidDomain
+domainStructure=${PWD}/../RESU/structureDomain
+
+# Ranks set to each domain
+numProcsFluid=128
+numProcsStructure=1
+
+# Get application name for fluid and structure domain
+solverFluid=./cs_solver
+solverStructure=structureDomainRun.py
+
+echo -n "ParaSiF_CF running..."
+
+export OMP_NUM_THREADS=1
+
+# ParaSiF_CF case with Code_Saturne_MUI_FEniCS parallel run
+mpirun -np ${numProcsFluid} -wdir ${domainFluid} ${solverFluid} --mpi :\
+       -np ${numProcsStructure} -wdir ${domainStructure} python3 -m mpi4py ${solverStructure}
+
+echo "Done"

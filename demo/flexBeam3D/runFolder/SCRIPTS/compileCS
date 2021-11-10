@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Run from this directory
+cd ${0%/*} || exit 1
+
+DIR="../RESU/"
+if [ -d "$DIR" ]; then
+  echo "${DIR} esist"
+else
+  mkdir ../RESU/
+fi
+
+code_saturne run --initialize
+
+mv ../RESU/2*/ ../RESU/fluidDomain/
+
+cp -R ../FEniCS ../RESU/structureDomain

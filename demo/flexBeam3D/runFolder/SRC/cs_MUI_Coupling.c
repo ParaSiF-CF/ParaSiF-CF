@@ -22,7 +22,7 @@
 -------------------------------------------------------------------------------
 
 Filename 
-    cs_MUI_Coupling.c
+    cs_MUI_Coupling.h
 
 Created
     05 January 2021
@@ -135,6 +135,7 @@ void mui_announce_span_send(double coord_min_sendX,
         printf("{CS} coord_send: %f %f %f to %f %f %f from %d with time to %d \n",coord_min_sendX,coord_min_sendY,coord_min_sendZ,coord_max_sendX,coord_max_sendY,coord_max_sendZ, cs_get_MUI_rank(), (cs_glob_time_step->nt_max));
 
     }
+    bft_printf("AFTER send creating box \n");
 
 }
 //-----
@@ -159,7 +160,7 @@ void mui_announce_span_rcv(double coord_min_rcvX,
         printf("{CS} coord_rcv: %f %f %f to %f %f %f from %d with time to %d \n",coord_min_rcvX,coord_min_rcvY,coord_min_rcvZ,coord_max_rcvX,coord_max_rcvY,coord_max_rcvZ, cs_get_MUI_rank(), (cs_glob_time_step->nt_max));
 
     }
-
+    bft_printf("AFTER rcv creating box \n");
 
 }
 
@@ -243,13 +244,11 @@ void commit_MUI_Coupling(const int    sub_iteration_numbers_MUI_Coupling,
 {
     int iterations_current = ((cs_glob_time_step->nt_cur ) * sub_iteration_numbers_MUI_Coupling + current_sub_iteration_number);
 
-
     int iterations_forget = iterations_current -4;
     int cr = mui_commit_rank_3d( cpl.uniface, iterations_current );
     mui_forget_upper_3d( cpl.uniface, iterations_forget, 1 );
 	mui_set_forget_length_3d( cpl.uniface, 4 );
 
-	bft_printf("{CS} commit Step %d sub-iterations %d commit number %d with commit ranks %d \n", cs_glob_time_step->nt_cur, current_sub_iteration_number, iterations_current, cr);
     int my_rank;
 		my_rank=cs_get_MUI_rank();
 	printf("{CS} commit Step %d with commit peers %d at rank %d \n", iterations_current, cr, my_rank);
@@ -272,7 +271,6 @@ void barrier_MUICpl(const int    sub_iteration_numbers_MUI_Coupling,
 
     mui_barrier_3d( cpl.uniface, iterations_current );
 
-    bft_printf("{CS} barrier Step %d sub-iterations %d barrier number %d \n", cs_glob_time_step->nt_cur, current_sub_iteration_number, iterations_current);
 }            
 
 //-----
@@ -389,12 +387,6 @@ void cs_push_field_MUI_Coupling(const char*      field_name,
                             name,
                             push_point3d,
                             ( double ) f->val[elt_list[i]*f->dim+j] );
-
-            bft_printf("{CS} push name: %s \n", name );
-            bft_printf("{CS} push value: %lf \n", ( double ) f->val[elt_list[i]*f->dim+j] );
-            bft_printf("{CS} push x =%f\n", cs_glob_mesh_quantities->cell_cen[elt_list[i]*3+0]);
-            bft_printf("{CS} push y =%f\n", cs_glob_mesh_quantities->cell_cen[elt_list[i]*3+1]);
-            bft_printf("{CS} push z =%f\n", cs_glob_mesh_quantities->cell_cen[elt_list[i]*3+2]);
 
             }
 

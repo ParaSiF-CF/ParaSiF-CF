@@ -520,14 +520,10 @@ else if (ttcabs.gt.0.0d0) then
     ! ! Formats
     ! !--------
     iii = 0
-    tFetchStart = 0d0
-    tFetchEnd = 0d0
-    tFLStart = 0d0
-    tFLEnd = 0d0
+
     ! --- prescribe Flexible Beam a Dirichlet boundary with imposed displacement
      call getfbr('8', nlelt, lstelt)
     ! !==========
-    call dmtmps(tFetchStart)
 
     if (local_fetch) then
         if ((muiCouplingMethod .ne. 1) .and. (muiCouplingMethod .ne. 2)) then
@@ -544,7 +540,7 @@ else if (ttcabs.gt.0.0d0) then
 
               do ii = ipnfbr(ifac), ipnfbr(ifac+1)-1 !! index number of nodfac array corresponding to ifac
           
-                  ! index-number iith node of face ifac.
+                ! index-number iith node of face ifac.
                 !
                 ! elemental pure integer function mesh::nodfbr(integer, intent(in) ipn)
                 ! indexed-numbers of the nodes of each boundary face
@@ -574,7 +570,6 @@ else if (ttcabs.gt.0.0d0) then
             enddo
         endif
     endif
-    call dmtmps(tFLStart)
 
     if (local_fetch) then
         if ((muiCouplingMethod .ne. 1) .and. (muiCouplingMethod .ne. 2)) then
@@ -637,7 +632,7 @@ else if (ttcabs.gt.0.0d0) then
                                                                fr, &
                                                                ak, &
                                                                IQNILS)
- 
+
                 impale(inod) = 1
 
             endif
@@ -646,9 +641,6 @@ else if (ttcabs.gt.0.0d0) then
           
         enddo
     endif
-
-    call dmtmps(tFLEnd)
-    call dmtmps(tFetchEnd)
 
     ! --- prescribe Upper, Front and Back a sliding boundary
 
@@ -678,6 +670,8 @@ else if (ttcabs.gt.0.0d0) then
 
 else
     
+    write(nfecra, *) "{CS} Unrecognized ttcabs velue: ", ttcabs
+
     return 1
 
 endif

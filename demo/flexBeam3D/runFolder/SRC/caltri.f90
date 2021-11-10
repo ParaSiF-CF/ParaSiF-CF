@@ -1147,6 +1147,8 @@ if (hasInitialised .eqv. .false.) then
 
     sizeMUI=cs_get_MUI_size()
 
+    write(nfecra, *) "{CS***} [Caltri.f90]: Rank: ", rankMUI, " Size: ", sizeMUI
+
 ! MUI commit
 
         call commit_MUI_Zero()

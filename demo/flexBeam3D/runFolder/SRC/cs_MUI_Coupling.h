@@ -52,7 +52,7 @@ typedef struct
     mui_uniface_3d* uniface;
 
     mui_sampler_pseudo_nearest2_linear_3d* spatial;
-//    mui_sampler_nearest3d* spatial;
+
     mui_chrono_sampler_exact_3d* temporal;
 
 } mui_coupling; 
@@ -76,6 +76,7 @@ double cs_fetch_disp_MUI_Coupling(    const char*                fetch_name,
 int cs_get_MUI_rank();
 int cs_get_MUI_size();
 int cs_local_MPI_barrier();
+
 void mui_announce_span_send(double coord_min_sendX, 
 							double coord_min_sendY, 
 							double coord_min_sendZ, 
