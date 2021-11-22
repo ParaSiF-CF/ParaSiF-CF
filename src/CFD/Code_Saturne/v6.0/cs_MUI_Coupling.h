@@ -36,6 +36,7 @@ Author
 #define CS_MUI_COUPLING_H
 
 #include "wrappers/C/mui_c_wrapper_3d.h"
+#include "wrappers/C/mui_c_wrapper_general.h"
 
 #include "bft_mem.h"
 #include "cs_mesh.h"
@@ -51,7 +52,7 @@ typedef struct
 
     mui_uniface_3d* uniface;
 
-    mui_sampler_pseudo_nearest2_linear_3d* spatial;
+    mui_sampler_pseudo_nearest_neighbor_3d* spatial;
 
     mui_chrono_sampler_exact_3d* temporal;
 
@@ -60,7 +61,7 @@ typedef struct
 extern mui_coupling cpl;
 
 mui_uniface_3d* cs_get_uniface();
-mui_sampler_pseudo_nearest2_linear_3d* cs_get_spatial();
+mui_sampler_pseudo_nearest_neighbor_3d* cs_get_spatial();
 mui_chrono_sampler_exact_3d* cs_get_temporal();
 
 void setup_MUI_Coupling( const char* );

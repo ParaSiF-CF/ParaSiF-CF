@@ -71,7 +71,7 @@ void setup_MUI_Coupling( const char* app_name )
     cpl.uniface = mui_create_uniface_3d((const char*) cpl.URI );
 
     /// Define spatial and temporal samplers
-    cpl.spatial = mui_create_sampler_pseudo_nearest2_linear_3d(r);
+    cpl.spatial = mui_create_sampler_pseudo_nearest_neighbor_3d(r);
     cpl.temporal = mui_create_chrono_sampler_exact_3d(1e-37);
 
 }
@@ -176,7 +176,7 @@ mui_uniface_3d* cs_get_uniface()
 
 //-----
 
-mui_sampler_pseudo_nearest2_linear_3d* cs_get_spatial()
+mui_sampler_pseudo_nearest_neighbor_3d* cs_get_spatial()
 {
  
     return cpl.spatial;
@@ -223,7 +223,7 @@ double cs_fetch_disp_MUI_Coupling(    const char*                fetch_name,
     {
         mui_point_3d fetch_point3d = { x_coord, y_coord, z_coord };
  
-        disp_comp = mui_fetch_pseudo_nearest_neighbor2_linear_exact_3d( cpl.uniface,
+        disp_comp = mui_fetch_pseudo_nearest_neighbor_exact_3d( cpl.uniface,
                                                                     name,
                                                                     fetch_point3d,
                                                                     iterations_current,
@@ -245,21 +245,21 @@ void commit_MUI_Coupling(const int    sub_iteration_numbers_MUI_Coupling,
     int iterations_current = ((cs_glob_time_step->nt_cur ) * sub_iteration_numbers_MUI_Coupling + current_sub_iteration_number);
 
     int iterations_forget = iterations_current -4;
-    int cr = mui_commit_rank_3d( cpl.uniface, iterations_current );
+    mui_commit_3d( cpl.uniface, iterations_current );
     mui_forget_upper_3d( cpl.uniface, iterations_forget, 1 );
 	mui_set_forget_length_3d( cpl.uniface, 4 );
 
     int my_rank;
 		my_rank=cs_get_MUI_rank();
-	printf("{CS} commit Step %d with commit peers %d at rank %d \n", iterations_current, cr, my_rank);
+	printf("{CS} commit Step %d at rank %d \n", iterations_current, my_rank);
 } 
 
 //-----
 
 void commit_MUI_Zero()
 {
-    int cr = mui_commit_rank_3d( cpl.uniface, 0 );
-    bft_printf("{CS} commit number 0 with commit ranks %d \n", cr);
+    mui_commit_3d( cpl.uniface, 0 );
+    bft_printf("{CS} commit number 0\n");
 }
 
 //----
