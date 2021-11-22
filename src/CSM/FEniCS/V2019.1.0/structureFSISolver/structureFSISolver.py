@@ -2626,7 +2626,7 @@ class StructureFSISolver:
             else:
                 a = MUI_Interfaces.forget((total_Sub_Iteration-(self.forgetTStepsMUI)))
 
-                MUI_Interfaces.set_memory(self.forgetTStepsMUI)
+                #MUI_Interfaces.set_memory(self.forgetTStepsMUI)
             if (self.MPI_Get_Rank(MPI_COMM_WORLD) == 0) and self.iDebug:
                 print ('{FENICS} MUI forget step: ',(total_Sub_Iteration-(self.forgetTStepsMUI)))
 

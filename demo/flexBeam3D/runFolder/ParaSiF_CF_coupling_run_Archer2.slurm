@@ -49,6 +49,6 @@ solverStructure=structureDomainRun.py
 
 export OMP_NUM_THREADS=1
 
-srun  --distribution=block:block --hint=nomultithread --het-group=1 --cpu-bind=rank --chdir=${domainFluid} ${solverFluid} --mpi :\
-     --distribution=block:block --hint=nomultithread --het-group=0 --cpu-bind=rank --chdir=${domainStructure} python3 ${solverStructure}
+srun  --distribution=block:block --hint=nomultithread --het-group=0 --cpu-bind=rank --chdir=${domainFluid} ${solverFluid} --mpi :\
+     --distribution=block:block --hint=nomultithread --het-group=1 --cpu-bind=rank --chdir=${domainStructure} python3 ${solverStructure}
 

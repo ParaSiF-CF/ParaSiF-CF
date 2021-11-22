@@ -42,7 +42,5 @@
 
 from structureFSISolver.tictoc import TicToc
 from structureFSISolver.structureFSISolver import StructureFSISolver
-from structureFSISolver.structureFSISolver_simple_test_store import StructureFSISolver
-from structureFSISolver.structureFSISolver2d import StructureFSISolver
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%  FILE END  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#

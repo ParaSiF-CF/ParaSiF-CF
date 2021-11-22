@@ -30,6 +30,7 @@
  * MUI Coupling library headers
  *----------------------------------------------------------------------------*/
 #include "wrappers/C/mui_c_wrapper_3d.h"
+#include "wrappers/C/mui_c_wrapper_general.h"
 #include "cs_MUI_Coupling.h"
 
 /*----------------------------------------------------------------------------
