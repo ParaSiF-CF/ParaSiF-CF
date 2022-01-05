@@ -36,7 +36,7 @@ Should you have any question please do not hesitate to contact the developers di
 
 ## Installation
 
-An installation of Code_Saturne (V6.0.6), FEniCS (V2019.1.0) and MUI (V1.1.3) and dependencies is provided under https://gitlab.com/Wendi-L/archer2_install/-/tree/master
+An installation of Code_Saturne (V6.0.6), FEniCS (V2019.1.0) and MUI (V1.1.3) and dependencies is provided under https://github.com/ParaSiF-CF/ParaSiF-CF_Archer2_install
 
 ## Source and export before run ParaSiF_CF cases
 
