@@ -30,11 +30,11 @@ The Parallel Partitioned Multi-physical Simulation Framework is developed by the
 
 ## Contact
 
-Should you have any question please do not hesitate to contact the developers directly
+Should you have any question please do not hesitate to contact the developers directly.
 
 ## Installation
 
-An installation of Code_Saturne (V6.0.6), FEniCS (V2019.1.0) and MUI (V1.1.3) and dependencies is provided under https://github.com/ParaSiF-CF/ParaSiF-CF_Archer2_install
+A way on how to instal Code_Saturne (V6.0.6), FEniCS (V2019.1.0) and MUI (V1.1.3) and their dependencies is provided under https://github.com/ParaSiF-CF/ParaSiF-CF_Archer2_install
 
 ## Source and export before run ParaSiF_CF cases
 
@@ -48,9 +48,9 @@ export PYTHONPATH=/path/to/ParaSiF_CF/src/CSM/FEniCS/V2019.1.0:$PYTHONPATH
 
 ## Demo
 
-Demo of the single phase FSI case (3-D flow past a flexible beam) is in ParaSiF_CF/demo folder.
+A demonstration case, e.g. the 3-D flow past a flexible beam is to be found in the ParaSiF_CF/demo folder.
 
-To run the demo case:
+To run this demonstration case:
 
 • Go to the demo folder and extract the mesh file
 ```bash
