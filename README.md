@@ -18,7 +18,7 @@ The framework uses a partitioned approach. It takes advantage of several feature
 
 ## Licensing
 
-Copyright (C) 2021 Engineering and Environment Group, Scientific Computing Department, Science and Technology Facilities Council, UK Research and Innovation. All rights reserved.
+Copyright (C) 2021 Computational Engineering and Environment Group, Scientific Computing Department, Science and Technology Facilities Council, UK Research and Innovation. All rights reserved.
 
 This code is licensed under the GNU General Public License version 3
 
