@@ -46,9 +46,9 @@ export PATH=${INSTALL_FOLDER}/SATURNE/V6.0.6/code_saturne-6.0.6/arch/Linux/bin:$
 export PYTHONPATH=/path/to/ParaSiF_CF/src/CSM/FEniCS/V2019.1.0:$PYTHONPATH
 ```
 
-## Demo
+## Demon
 
-A demonstration case, e.g. the 3-D flow past a flexible beam is to be found in the ParaSiF_CF/demo folder.
+A demonstration case, e.g. the 3-D flow past a flexible beam is to be found in the ParaSiF_CF/demo folder (https://github.com/ParaSiF-CF/ParaSiF_CF/tree/main/demo/flexBeam3D).
 
 To run this demonstration case:
 
