@@ -23,9 +23,7 @@ Copyright (C) 2021 Computational Engineering and Environment Group, Scientific C
 This code is licensed under the GNU General Public License version 3
 
 ## Acknowledgements
-The Parallel Partitioned Multi-physical Simulation Framework is developed by the [Scientific Computing Department](https://www.scd.stfc.ac.uk/) of the [Science and Technology Facilities Council](https://stfc.ukri.org/). If you use this framework, please cite us:
-
-*
+The Parallel Partitioned Multi-physical Simulation Framework is developed by the [Scientific Computing Department](https://www.scd.stfc.ac.uk/) of the [Science and Technology Facilities Council](https://stfc.ukri.org/).
 
 ## Publication
 
