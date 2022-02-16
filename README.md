@@ -1,4 +1,4 @@
-# ParaSiF_CF - Parallel Partitioned Fluid-Structure Interaction (FSI) Simulation Framework
+# ParaSiF-CF - Parallel Partitioned Fluid-Structure Interaction (FSI) Simulation Framework
 
 The Parallel Partitioned Fluid-Structure Interaction (FSI) Simulation Framework employs Code_Saturne to solve the computational fluid dynamics (CFD), FEniCS to solve the computational structure mechanics (CSM) and MUI for data exchange. It offers a platform where users can carry out fluid-structure interaction studies using supercomputers.
 
@@ -36,19 +36,19 @@ Should you have any question please do not hesitate to contact the developers di
 
 A way on how to install Code_Saturne (V6.0.6), FEniCS (V2019.1.0) and MUI (V1.1.3) and their dependencies is provided under https://github.com/ParaSiF-CF/ParaSiF-CF_Archer2_install
 
-## Source and export before run ParaSiF_CF cases
+## Source and export before run ParaSiF-CF cases
 
 Assuming that $INSTALL_FOLDER has been defined as during the aforementioned installation, several settings have to be added:
 
 ```bash
 source ${INSTALL_FOLDER}/FEniCS/V2019.1.0/dolfin/build/share/dolfin/dolfin.conf
 export PATH=${INSTALL_FOLDER}/SATURNE/V6.0.6/code_saturne-6.0.6/arch/Linux/bin:$PATH
-export PYTHONPATH=/path/to/ParaSiF_CF/src/CSM/FEniCS/V2019.1.0:$PYTHONPATH
+export PYTHONPATH=/path/to/ParaSiF-CF/src/CSM/FEniCS/V2019.1.0:$PYTHONPATH
 ```
 
 ## Demon
 
-A demonstration case, e.g. the 3-D flow past a flexible beam is to be found in the ParaSiF_CF/demo folder (https://github.com/ParaSiF-CF/ParaSiF_CF/tree/main/demo/flexBeam3D).
+A demonstration case, e.g. the 3-D flow past a flexible beam is to be found in the ParaSiF-CF/demo folder (https://github.com/ParaSiF-CF/ParaSiF-CF/tree/main/demo/flexBeam3D).
 
 To run this demonstration case:
 
@@ -62,14 +62,14 @@ cd MESH && tar -xf Flex_Beam.tar.gz && cd ../
 cd runFolder/
 ```
 
-• Source and export before run ParaSiF_CF cases (Please refer to the previous section).
+• Source and export before run ParaSiF-CF cases (Please refer to the previous section).
 
 • Compile Code_Saturne and copy FEniCS run case to the RESU sub-folder.
 ```bash
 ./SCRIPTS/compileCS
 ```
 
-• Run the ParaSiF_CF framework.
+• Run the ParaSiF-CF framework.
 ```bash
 ./SCRIPTS/runcase
 ```
